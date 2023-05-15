@@ -1,5 +1,5 @@
 -- Insert values for department names
-INSERT INTO department (name)
+INSERT INTO department (department_name)
 VALUES ('Engineering'),
 ('Sales'),
 ('Finance'),
@@ -16,6 +16,16 @@ VALUES ('Sales Lead', 100000, 1),
 ('Legal Team Lead', 250000, 4),
 ('Lawyer', 190000, 4);
 
+-- sales lead = role_id 1,
+-- salesperson = role_id 2,
+-- lead engineer = role_id 3,
+-- software engineer = role_id 4,
+-- account manager = role_id 5,
+-- accountant = role_id 6,
+-- legal team lead = role_id 7,
+-- lawyer = role_id 8
+
+-- Insert values for first_name, last_name, role_id and manager_id
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES ('John','Doe', 1),
 ('Mike', 'Chan', 2, 1),
