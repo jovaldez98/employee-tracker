@@ -1,10 +1,16 @@
 const inquirer = require('inquirer');
 const db = require('./db/connection');
 const util = require('util');
-const { type } = require('os');
-db.query = util.promisify(db.query);
+const logo = require('asciiart-logo');
+ db.query = util.promisify(db.query);
 
-async function queryMyDatabase() {
+function init() {
+    const logoText = logo({ name: 'Employee Tracker' }).render();
+    console.log(logoText);
+    queryMyDatabase();
+}
+
+ function queryMyDatabase() {
     console.log('Viewing all departments...');
 
 
@@ -55,7 +61,7 @@ async function queryMyDatabase() {
                     return;
             }
         });
-}
+    }
 
 // View all departments
 function viewDepartments() {
@@ -280,8 +286,4 @@ function addRole() {
     });
 };
 
-db.connect(err => {
-    if (err) throw err;
-    console.log('Database connected.');
-    queryMyDatabase();
-});
+init();

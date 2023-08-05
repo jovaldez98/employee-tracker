@@ -11,18 +11,13 @@ const db = mysql.createConnection(
     console.log('Connection to the employee_db database was successful...')
 );
 
-db.connect(err => {
-    if (err) throw err;
-    console.log('it is connected as id ' + db.threadId);
-    afterConnection();
+// db.connect(err => {
+//     if (err) throw err;
+//     console.log('it is connected as id ' + db.threadId);
+// });
+
+db.on('error', (err) => {
+    console.log('error connecting: ' + err.stack, err.message);
 });
 
-// // Function for after connection, Employee Manager image
-afterConnection = () => {
-    console.log('***********************')
-    console.log('**                   **')
-    console.log('** Employee Manager  **')
-    console.log('**                   **')
-    console.log('***********************')
-    answer();
-};
+ module.exports = db;
