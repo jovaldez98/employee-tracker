@@ -65,7 +65,7 @@ function init() {
 
 // View all departments
 function viewDepartments() {
-    db.query('SELECT * FROM departemtn', (err, res) => {
+    db.query('SELECT * FROM department', (err, res) => {
         if (err) throw err;
         console.table(res);
         queryMyDatabase();
@@ -81,7 +81,7 @@ function addDepartment() {
             message: 'Enter the name of the department you would like to add:',
         })
         .then((answer) => {
-            db.query('INSERT INTO department (department_name) VALUES (?)'
+            db.query('INSERT INTO department (department_name) VALUES (?)',
             [answer.name],
                 (err, res) => {
                     if (err) {
